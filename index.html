@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-:8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Drich Bags - Luxury Bags, Shoes & Hair</title>
 <style>
@@ -20,13 +20,13 @@ body{font-family:-apple-system,Arial;background:#f5f5f5;padding-top:110px}
 .tab.active{color:#ff4d4d;border-bottom:3px solid #ff4d4d}
 .grid{display:none;padding:12px;grid-template-columns:repeat(2,1fr);gap:10px}
 .grid.active{display:grid}
-.item{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.item{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06);position:relative}
 .item img{width:100%;height:180px;object-fit:cover;background:#f0f0f0}
 .info{padding:10px}
 .name{font-size:13px;color:#222;margin-bottom:4px;height:36px;overflow:hidden;line-height:1.3}
 .price{color:#ff4d4d;font-size:16px;font-weight:700}
 .whatsapp{background:#25D366;color:#fff;border:none;padding:8px;border-radius:6px;width:100%;font-weight:600;cursor:pointer;font-size:13px;margin-top:6px}
-.badge{background:#ff4d4d;color:#fff;padding:3px 6px;border-radius:4px;font-size:10px;position:absolute;margin:6px;font-weight:600}
+.badge{background:#ff4d4d;color:#fff;padding:3px 6px;border-radius:4px;font-size:10px;position:absolute;margin:6px;font-weight:600;z-index:2}
 </style>
 </head>
 <body>
@@ -54,20 +54,20 @@ body{font-family:-apple-system,Arial;background:#f5f5f5;padding-top:110px}
 <div id="bags" class="grid active">
 <div class="item">
 <span class="badge">NEW</span>
-<img src="bags1.jpg">
+<img src="IMG-1001.jpg.WEBP">
 <div class="info">
-<div class="name">Gucci style backpack</div>
+<div class="name">Luxury backpack bag</div>
 <div class="price">GHS 150</div>
-<button class="whatsapp" onclick="order('Gucci style backpack - GHS 150')">WhatsApp Order</button>
+<button class="whatsapp" onclick="order('Luxury backpack bag - GHS 150')">WhatsApp Order</button>
 </div>
 </div>
 <div class="item">
 <span class="badge">HOT</span>
-<img src="bags2.jpg">
+<img src="IMG-1002.jpg.WEBP">
 <div class="info">
-<div class="name">LV Crossbody bag</div>
+<div class="name">Crossbody shoulder bag</div>
 <div class="price">GHS 170</div>
-<button class="whatsapp" onclick="order('LV Crossbody bag - GHS 170')">WhatsApp Order</button>
+<button class="whatsapp" onclick="order('Crossbody shoulder bag - GHS 170')">WhatsApp Order</button>
 </div>
 </div>
 </div>
@@ -75,19 +75,19 @@ body{font-family:-apple-system,Arial;background:#f5f5f5;padding-top:110px}
 <div id="shoes" class="grid">
 <div class="item">
 <span class="badge">BEST</span>
-<img src="shoes1.jpg">
+<img src="IMG-2001.jpg.WEBP">
 <div class="info">
-<div class="name">Nike Air Force</div>
+<div class="name">Nike Air Force sneakers</div>
 <div class="price">GHS 180</div>
-<button class="whatsapp" onclick="order('Nike Air Force - GHS 180')">WhatsApp Order</button>
+<button class="whatsapp" onclick="order('Nike Air Force sneakers - GHS 180')">WhatsApp Order</button>
 </div>
 </div>
 <div class="item">
-<img src="shoes2.jpg">
+<img src="IMG-2002.jpg.WEBP">
 <div class="info">
-<div class="name">Black heels</div>
+<div class="name">Black stiletto heels</div>
 <div class="price">GHS 130</div>
-<button class="whatsapp" onclick="order('Black heels - GHS 130')">WhatsApp Order</button>
+<button class="whatsapp" onclick="order('Black stiletto heels - GHS 130')">WhatsApp Order</button>
 </div>
 </div>
 </div>
@@ -95,17 +95,17 @@ body{font-family:-apple-system,Arial;background:#f5f5f5;padding-top:110px}
 <div id="hair" class="grid">
 <div class="item">
 <span class="badge">NEW</span>
-<img src="hair1.jpg">
+<img src="IMG-3001.jpg.WEBP">
 <div class="info">
-<div class="name">Bone straight</div>
+<div class="name">Bone straight wig</div>
 <div class="price">GHS 400</div>
-<button class="whatsapp" onclick="order('Bone straight - GHS 400')">WhatsApp Order</button>
+<button class="whatsapp" onclick="order('Bone straight wig - GHS 400')">WhatsApp Order</button>
 </div>
 </div>
 <div class="item">
 <span class="badge">TREND</span>
-<img src="hair2.jpg">
-<div class="info>
+<img src="IMG-3002.jpg.WEBP">
+<div class="info">
 <div class="name">Wig with closure</div>
 <div class="price">GHS 350</div>
 <button class="whatsapp" onclick="order('Wig with closure - GHS 350')">WhatsApp Order</button>
