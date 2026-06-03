@@ -9,10 +9,11 @@
 body{font-family:-apple-system,Arial;background:#f5f5f5;padding-top:110px}
 .topbar{position:fixed;top:0;left:0;right:0;background:#fff;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
 .topnav{display:flex;align-items:center;justify-content:space-between;padding:10px 12px}
-.logo{font-size:22px;font-weight:800;color:#ff4d4d;letter-spacing:-1px}
-.icons{display:flex;gap:18px}
-.icons svg{width:24px;height:24px;stroke:#333;fill:none;stroke-width:2;cursor:pointer}
-.cart-count{background:#ff4d4d;color:#fff;border-radius:50%;font-size:10px;padding:2px 5px;position:absolute;margin-left:15px;margin-top:-5px}
+.logo{font-size:22px;font-weight:800;color:#ff4d4d;letter-spacing:-1px;cursor:pointer}
+.icons{display:flex;gap:18px;position:relative}
+.icon-wrap{position:relative;cursor:pointer}
+.icons svg{width:24px;height:24px;stroke:#333;fill:none;stroke-width:2}
+.cart-count{background:#ff4d4d;color:#fff;border-radius:50%;font-size:11px;padding:2px 6px;position:absolute;top:-6px;right:-8px;font-weight:700;min-width:18px;text-align:center}
 .searchbar{padding:0 12px 10px}
 .searchbar input{width:100%;padding:10px 12px;border:1px solid #e0e0e0;border-radius:20px;background:#f7f7f7;font-size:14px;outline:none}
 .tabs{display:flex;background:#fff;border-top:1px solid #eee}
@@ -23,16 +24,17 @@ body{font-family:-apple-system,Arial;background:#f5f5f5;padding-top:110px}
 .item{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06);position:relative}
 .item img{width:100%;height:180px;object-fit:cover;background:#f0f0f0}
 .info{padding:10px}
-.name{font-size:13px;color:#222;margin-bottom:4px;height:36px;overflow:hidden}
+.name{font-size:13px;color:#222;margin-bottom:4px;height:36px;overflow:hidden;line-height:1.3}
 .price{color:#ff4d4d;font-size:16px;font-weight:700}
 .whatsapp{background:#25D366;color:#fff;border:none;padding:8px;border-radius:6px;width:100%;font-weight:600;cursor:pointer;font-size:13px;margin-top:6px}
 .badge{background:#ff4d4d;color:#fff;padding:3px 6px;border-radius:4px;font-size:10px;position:absolute;margin:6px;font-weight:600;z-index:2}
 .popup{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center}
 .popup.active{display:flex}
-.popup-box{background:#fff;border-radius:12px;width:90%;max-height:80%;overflow-y:auto;padding:20px}
-.close-btn{float:right;font-size:24px;cursor:pointer;color:#999}
-.cart-item{border-bottom:1px solid #eee;padding:10px 0;display:flex;justify-content:space-between}
-.checkout{background:#25D366;color:#fff;border:none;padding:12px;border-radius:8px;width:100%;font-weight:700;margin-top:10px}
+.popup-box{background:#fff;border-radius:12px;width:90%;max-width:400px;max-height:80%;overflow-y:auto;padding:20px}
+.close-btn{float:right;font-size:28px;cursor:pointer;color:#999;line-height:1}
+.cart-item{border-bottom:1px solid #eee;padding:10px 0;display:flex;justify-content:space-between;font-size:14px}
+.checkout{background:#25D366;color:#fff;border:none;padding:12px;border-radius:8px;width:100%;font-weight:700;margin-top:10px;font-size:15px;cursor:pointer}
+.menu-item{padding:12px 0;border-bottom:1px solid #f0f0f0;cursor:pointer;font-size:15px}
 </style>
 </head>
 <body>
@@ -41,12 +43,18 @@ body{font-family:-apple-system,Arial;background:#f5f5f5;padding-top:110px}
 <div class="topnav">
 <div class="logo" onclick="showMenu()">DRICH</div>
 <div class="icons">
-<svg onclick="showMenu()" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-<svg onclick="alert('Profile page coming soon')" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-<svg onclick="showCart()" viewBox="0 0 24 24">
+<div class="icon-wrap" onclick="showMenu()">
+<svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</div>
+<div class="icon-wrap" onclick="alert('Profile page coming soon')">
+<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+</div>
+<div class="icon-wrap" onclick="showCart()">
 <span id="cart-count" class="cart-count">0</span>
+<svg viewBox="0 0 24 24">
 <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
 </svg>
+</div>
 </div>
 </div>
 <div class="searchbar">
@@ -67,7 +75,7 @@ body{font-family:-apple-system,Arial;background:#f5f5f5;padding-top:110px}
 <div class="info">
 <div class="name">Luxury backpack bag</div>
 <div class="price">GHS 150</div>
-<button class="whatsapp" onclick="addToCart('Luxury backpack bag','150','IMG-1001.jpg.WEBP')">Add to Cart</button>
+<button class="whatsapp" onclick="addToCart('Luxury backpack bag','150')">Add to Cart</button>
 </div>
 </div>
 <div class="item">
@@ -76,7 +84,7 @@ body{font-family:-apple-system,Arial;background:#f5f5f5;padding-top:110px}
 <div class="info">
 <div class="name">Crossbody shoulder bag</div>
 <div class="price">GHS 170</div>
-<button class="whatsapp" onclick="addToCart('Crossbody shoulder bag','170','IMG-1002.jpg.WEBP')">Add to Cart</button>
+<button class="whatsapp" onclick="addToCart('Crossbody shoulder bag','170')">Add to Cart</button>
 </div>
 </div>
 </div>
@@ -88,7 +96,7 @@ body{font-family:-apple-system,Arial;background:#f5f5f5;padding-top:110px}
 <div class="info">
 <div class="name">Nike Air Force sneakers</div>
 <div class="price">GHS 180</div>
-<button class="whatsapp" onclick="addToCart('Nike Air Force sneakers','180','IMG-2001.jpg.WEBP')">Add to Cart</button>
+<button class="whatsapp" onclick="addToCart('Nike Air Force sneakers','180')">Add to Cart</button>
 </div>
 </div>
 <div class="item">
@@ -96,7 +104,7 @@ body{font-family:-apple-system,Arial;background:#f5f5f5;padding-top:110px}
 <div class="info">
 <div class="name">Black stiletto heels</div>
 <div class="price">GHS 130</div>
-<button class="whatsapp" onclick="addToCart('Black stiletto heels','130','IMG-2002.jpg.WEBP')">Add to Cart</button>
+<button class="whatsapp" onclick="addToCart('Black stiletto heels','130')">Add to Cart</button>
 </div>
 </div>
 </div>
@@ -108,7 +116,7 @@ body{font-family:-apple-system,Arial;background:#f5f5f5;padding-top:110px}
 <div class="info">
 <div class="name">Bone straight wig</div>
 <div class="price">GHS 400</div>
-<button class="whatsapp" onclick="addToCart('Bone straight wig','400','IMG-3001.jpg.WEBP')">Add to Cart</button>
+<button class="whatsapp" onclick="addToCart('Bone straight wig','400')">Add to Cart</button>
 </div>
 </div>
 <div class="item">
@@ -117,28 +125,28 @@ body{font-family:-apple-system,Arial;background:#f5f5f5;padding-top:110px}
 <div class="info">
 <div class="name">Wig with closure</div>
 <div class="price">GHS 350</div>
-<button class="whatsapp" onclick="addToCart('Wig with closure','350','IMG-3002.jpg.WEBP')">Add to Cart</button>
+<button class="whatsapp" onclick="addToCart('Wig with closure','350')">Add to Cart</button>
 </div>
 </div>
 </div>
 
-<div id="cartPopup" class="popup">
-<div class="popup-box">
+<div id="cartPopup" class="popup" onclick="closeCart(event)">
+<div class="popup-box" onclick="event.stopPropagation()">
 <span class="close-btn" onclick="closeCart()">&times;</span>
-<h3>Your Cart</h3>
+<h3 style="margin-bottom:15px">Your Cart</h3>
 <div id="cart-items"></div>
-<div id="cart-total" style="font-weight:700;font-size:18px;margin:15px 0"></div>
+<div id="cart-total" style="font-weight:700;font-size:18px;margin:15px 0;color:#ff4d4d"></div>
 <button class="checkout" onclick="checkoutWhatsApp()">Order on WhatsApp</button>
 </div>
 </div>
 
-<div id="menuPopup" class="popup">
-<div class="popup-box">
+<div id="menuPopup" class="popup" onclick="closeMenu(event)">
+<div class="popup-box" onclick="event.stopPropagation()">
 <span class="close-btn" onclick="closeMenu()">&times;</span>
-<h3>Menu</h3>
-<p style="margin:10px 0;cursor:pointer" onclick="alert('About Us page coming')">About Us</p>
-<p style="margin:10px 0;cursor:pointer" onclick="alert('Contact: 0538605837')">Contact</p>
-<p style="margin:10px 0;cursor:pointer" onclick="alert('Delivery info coming')">Delivery Info</p>
+<h3 style="margin-bottom:15px">Menu</h3>
+<div class="menu-item" onclick="alert('About Drich Bags: Luxury bags, shoes & hair at affordable prices')">About Us</div>
+<div class="menu-item" onclick="alert('WhatsApp: 0538605837\nCall: 0538605837')">Contact</div>
+<div class="menu-item" onclick="alert('Delivery: 1-2 days within Accra\nOutside Accra: 2-4 days')">Delivery Info</div>
 </div>
 </div>
 
@@ -150,8 +158,8 @@ document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
 document.getElementById(tab).classList.add('active');
 event.target.classList.add('active');
 }
-function addToCart(name,price,img){
-cart.push({name,price,img});
+function addToCart(name,price){
+cart.push({name,price:parseInt(price)});
 updateCartCount();
 alert(name+' added to cart!');
 }
@@ -161,30 +169,34 @@ document.getElementById('cart-count').textContent=cart.length;
 function showCart(){
 document.getElementById('cartPopup').classList.add('active');
 let html='';let total=0;
+if(cart.length==0){
+html='<p style="text-align:center;color:#999">Cart empty</p>';
+}else{
 cart.forEach((item,i)=>{
 html+=`<div class="cart-item"><span>${item.name}</span><span>GHS ${item.price}</span></div>`;
-total+=parseInt(item.price);
+total+=item.price;
 });
-document.getElementById('cart-items').innerHTML=html||'<p>Cart empty</p>';
+}
+document.getElementById('cart-items').innerHTML=html;
 document.getElementById('cart-total').textContent=total>0?'Total: GHS '+total:'';
 }
-function closeCart(){
-document.getElementById('cartPopup').classList.remove('active');
+function closeCart(e){
+if(!e||e.target.id=='cartPopup')document.getElementById('cartPopup').classList.remove('active');
 }
 function checkoutWhatsApp(){
-if(cart.length==0){alert('Cart empty!');return;}
+if(cart.length==0){alert('Cart empty! Add items first');return;}
 let msg='Hi Drich Bags, I want to order:%0A';
 cart.forEach(item=>{msg+=`- ${item.name} GHS ${item.price}%0A`;});
-let total=cart.reduce((a,b)=>a+parseInt(b.price),0);
-msg+=`Total: GHS ${total}`;
-window.open('https://wa.me/233538605837?text='+msg);
+let total=cart.reduce((a,b)=>a+b.price,0);
+msg+=`%0ATotal: GHS ${total}`;
+window.open('https://wa.me/233538605837?text='+msg,'_blank');
 cart=[];updateCartCount();closeCart();
 }
 function showMenu(){
 document.getElementById('menuPopup').classList.add('active');
 }
-function closeMenu(){
-document.getElementById('menuPopup').classList.remove('active');
+function closeMenu(e){
+if(!e||e.target.id=='menuPopup')document.getElementById('menuPopup').classList.remove('active');
 }
 function search(val){
 document.querySelectorAll('.item').forEach(item=>{
